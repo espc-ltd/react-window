@@ -546,7 +546,7 @@ export default function createListComponent({
     _onScrollHorizontal = (event: ScrollEvent): void => {
       const { clientWidth, scrollLeft, scrollWidth } = event.currentTarget;
       this.setState(prevState => {
-        if (prevState.scrollOffset === scrollLeft) {
+        if (prevState.scrollOffset === Math.floor(scrollLeft)) {
           // Scroll position may have been updated by cDM/cDU,
           // In which case we don't need to trigger another render,
           // And we don't want to update state.isScrolling.
@@ -590,7 +590,7 @@ export default function createListComponent({
     _onScrollVertical = (event: ScrollEvent): void => {
       const { clientHeight, scrollHeight, scrollTop } = event.currentTarget;
       this.setState(prevState => {
-        if (prevState.scrollOffset === scrollTop) {
+        if (prevState.scrollOffset === Math.floor(scrollTop)) {
           // Scroll position may have been updated by cDM/cDU,
           // In which case we don't need to trigger another render,
           // And we don't want to update state.isScrolling.
